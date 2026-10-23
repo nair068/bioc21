@@ -1,1 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acne: What's Happening Under Your Skin?</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f8fc;
+            color: #263238;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #4f7cac;
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        header h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 20px;
+        }
+
+        nav {
+            background: #263238;
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #b9d6f2;
+        }
+
+        section {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 30px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #4f7cac;
+            margin-bottom: 15px;
+            font-size: 30px;
+        }
+
+        h3 {
+            color: #365f82;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background: #4f7cac;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 8px;
+        }
+
+        button:hover {
+            background: #365f82;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .fact-box {
+            background: #e8f2fb;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+
+        .cell-parts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .part {
+            background: #eef5fa;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .quiz-question {
+            margin: 25px 0;
+            padding: 20px;
+            background: #f4f7fa;
+            border-radius: 10px;
+        }
+
+        #score {
+            font-size: 22px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        footer {
+            background: #263238;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Acne: What's Happening Under Your Skin?</h1>
+        <p>Explore your cells, tissues, and how acne develops!</p>
+    </header>
+
+    <nav>
+        <a href="#start">Start Here</a>
+        <a href="#cells">Your Cells</a>
+        <a href="#acne">How Acne Forms</a>
+        <a href="#quiz">Challenge</a>
+    </nav>
+
+    <section id="start">
+        <div class="card">
+            <h2>Welcome!</h2>
+
+            <p>
+                Your skin is made of many different types of cells that work
+                together to protect your body. Sometimes, changes in the skin
+                can lead to acne.
+            </p>
+
+            <p>
+                In this interactive experience, you will explore what happens
+                to cells and tissues when acne develops.
+            </p>
+
+            <br>
+
+            <button onclick="showWelcomeFact()">
+                Click to discover a fact!
+            </button>
+
+            <div id="welcomeFact" class="fact-box hidden">
+                Your skin is the largest organ of the human body!
+            </div>
+        </div>
+    </section>
+
+
+    <section id="cells">
+
+        <div class="card">
+
+            <h2>Meet Your Cells</h2>
+
+            <p>
+                Cells are the basic building blocks of living things.
+                Different parts of a cell have different jobs.
+                Click each cell part to learn more.
+            </p>
+
+            <div class="cell-parts">
+
+                <div class="part">
+                    <h3>Nucleus</h3>
+                    <button onclick="showInfo('nucleus')">
+                        Explore
+                    </button>
+                    <p id="nucleus" class="hidden">
+                        The nucleus contains the cell's genetic information
+                        and helps control what the cell does.
+                    </p>
+                </div>
+
+                <div class="part">
+                    <h3>Mitochondria</h3>
+                    <button onclick="showInfo('mitochondria')">
+                        Explore
+                    </button>
+                    <p id="mitochondria" class="hidden">
+                        Mitochondria help produce energy that cells need
+                        to carry out their functions.
+                    </p>
+                </div>
+
+                <div class="part">
+                    <h3>Cell Membrane</h3>
+                    <button onclick="showInfo('membrane')">
+                        Explore
+                    </button>
+                    <p id="membrane" class="hidden">
+                        The cell membrane surrounds the cell and helps
+                        control what enters and leaves it.
+                    </p>
+                </div>
+
+                <div class="part">
+                    <h3>Cytoplasm</h3>
+                    <button onclick="showInfo('cytoplasm')">
+                        Explore
+                    </button>
+                    <p id="cytoplasm" class="hidden">
+                        Cytoplasm is the jelly-like material inside the cell
+                        where many cell activities take place.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <section id="acne">
+
+        <div class="card">
+
+            <h2>How Does Acne Form?</h2>
+
+            <p>
+                Acne can develop when a hair follicle becomes clogged.
+                Explore the steps below to see how this can happen.
+            </p>
+
+            <br>
+
+            <button onclick="showStep(1)">Step 1: Sebum</button>
+            <button onclick="showStep(2)">Step 2: Dead Skin Cells</button>
+            <button onclick="showStep(3)">Step 3: Clogged Follicle</button>
+            <button onclick="showStep(4)">Step 4: Inflammation</button>
+
+            <div id="step1" class="fact-box hidden">
+                <h3>Step 1: Sebum</h3>
+                <p>
+                    Sebaceous glands produce an oily substance called sebum.
+                    Sebum normally helps keep your skin from becoming too dry.
+                </p>
+            </div>
+
+            <div id="step2" class="fact-box hidden">
+                <h3>Step 2: Dead Skin Cells</h3>
+                <p>
+                    Your skin constantly replaces old cells with new ones.
+                    Dead skin cells can mix with sebum inside a hair follicle.
+                </p>
+            </div>
+
+            <div id="step3" class="fact-box hidden">
+                <h3>Step 3: Clogged Follicle</h3>
+                <p>
+                    When sebum and dead skin cells build up, they can
+                    contribute to a clogged hair follicle.
+                </p>
+            </div>
+
+            <div id="step4" class="fact-box hidden">
+                <h3>Step 4: Inflammation</h3>
+                <p>
+                    The body can respond to changes in the follicle with
+                    inflammation. This can contribute to the redness and
+                    swelling associated with acne.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section id="quiz">
+
+        <div class="card">
+
+            <h2>Acne Challenge!</h2>
+
+            <p>
+                Test what you learned. Choose the best answer for each question.
+            </p>
+
+            <div class="quiz-question">
+
+                <h3>1. What is the basic building block of living things?</h3>
+
+                <button onclick="answer(this, true)">
+                    Cell
+                </button>
+
+                <button onclick="answer(this, false)">
+                    Tissue
+                </button>
+
+                <p class="feedback"></p>
+
+            </div>
+
+
+            <div class="quiz-question">
+
+                <h3>2. What substance is produced by sebaceous glands?</h3>
+
+                <button onclick="answer(this, true)">
+                    Sebum
+                </button>
+
+                <button onclick="answer(this, false)">
+                    Oxygen
+                </button>
+
+                <p class="feedback"></p>
+
+            </div>
+
+
+            <div class="quiz-question">
+
+                <h3>3. What can contribute to a clogged hair follicle?</h3>
+
+                <button onclick="answer(this, true)">
+                    Sebum and dead skin cells
+                </button>
+
+                <button onclick="answer(this, false)">
+                    Mitochondria and oxygen
+                </button>
+
+                <p class="feedback"></p>
+
+            </div>
+
+            <div id="score"></div>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+        <p>Interactive Elementary Histology Experience</p>
+        <p>Explore • Learn • Test Your Knowledge</p>
+    </footer>
+
+
+    <script>
+
+        function showWelcomeFact() {
+            document.getElementById("welcomeFact").classList.toggle("hidden");
+        }
+
+
+        function showInfo(id) {
+            document.getElementById(id).classList.toggle("hidden");
+        }
+
+
+        function showStep(stepNumber) {
+
+            for (let i = 1; i <= 4; i++) {
+                document.getElementById("step" + i).classList.add("hidden");
+            }
+
+            document.getElementById("step" + stepNumber).classList.remove("hidden");
+        }
+
+
+        let score = 0;
+        let answered = 0;
+
+
+        function answer(button, correct) {
+
+            let feedback = button.parentElement.querySelector(".feedback");
+
+            if (button.parentElement.dataset.answered === "true") {
+                return;
+            }
+
+            button.parentElement.dataset.answered = "true";
+            answered++;
+
+            if (correct) {
+                feedback.textContent = "Correct! Great job.";
+                score++;
+            } else {
+                feedback.textContent = "Not quite. Try reviewing the information above.";
+            }
+
+            document.getElementById("score").textContent =
+                "Score: " + score + " / " + answered;
+        }
+
+    </script>
+
+</body>
+</html>
 
